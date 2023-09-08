@@ -149,9 +149,9 @@ class Recipe(models.Model):
         )
     )
     pub_date = models.DateTimeField(
-            verbose_name='Дата публикации',
-            auto_now=True
-            )
+        verbose_name='Дата публикации',
+        auto_now=True
+    )
 
     class Meta:
         ordering = ['-pub_date']
