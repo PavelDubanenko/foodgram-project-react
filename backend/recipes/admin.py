@@ -1,21 +1,10 @@
 from django.contrib import admin
+
 from .models import (
-    User, Tag, Ingredient, Recipe, Follow, Favorite,
+    Tag, Ingredient, Recipe, Favorite,
     IngredientAmount, Cart
 )
 
-
-class UserAdmin(admin.ModelAdmin):
-    list_display = (
-        'id',
-        'first_name',
-        'last_name',
-        'username',
-        'email',
-    )
-    search_fields = ('username',)
-    list_filter = ('email', 'first_name')
-    empty_value_display = '-пусто-'
 
 
 class RecipesAdmin(admin.ModelAdmin):
@@ -40,11 +29,9 @@ class IngredientAdmin(admin.ModelAdmin):
     list_filter = ('name',)
 
 
-admin.site.register(User, UserAdmin)
 admin.site.register(Tag)
 admin.site.register(Ingredient, IngredientAdmin)
 admin.site.register(Recipe, RecipesAdmin)
-admin.site.register(Follow)
 admin.site.register(Favorite)
 admin.site.register(IngredientAmount)
 admin.site.register(Cart)

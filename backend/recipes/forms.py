@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from .models import User, Recipes, Ingredients
+from .models import User, Recipe, Ingredient
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -11,7 +11,7 @@ class CustomUserCreationForm(UserCreationForm):
 
 class CustomRecipesCreationForm(forms.ModelForm):
     class Meta:
-        model = Recipes
+        model = Recipe
         fields = (
             'id',
             'author',
@@ -27,7 +27,7 @@ class CustomRecipesCreationForm(forms.ModelForm):
 
 class IngredientsForm(forms.ModelForm):
     class Meta:
-        model = Ingredients
+        model = Ingredient
         fields = (
             'name',
             'measurement_unit'

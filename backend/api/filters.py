@@ -9,6 +9,7 @@ class IngredientSearchFilter(SearchFilter):
 
 
 class AuthorAndTagFilter(FilterSet):
+    '''Возвращает список тэгов и авторов прошедших проверку подлинности'''
     tags = filters.AllValuesMultipleFilter(field_name='tags__slug')
     author = filters.ModelChoiceFilter(queryset=User.objects.all())
     is_favorited = filters.BooleanFilter(method='filter_is_favorited')
