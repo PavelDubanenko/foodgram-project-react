@@ -6,7 +6,6 @@ from .models import (
 )
 
 
-
 class RecipesAdmin(admin.ModelAdmin):
     list_display = (
         'author',
