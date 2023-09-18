@@ -1,4 +1,4 @@
-from recipes.models import Ingredients
+from recipes.models import Ingredients, Tags
 from rest_framework.validators import ValidationError
 
 

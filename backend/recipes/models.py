@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.conf import settings
-
+from colorfield.fields import ColorField
 
 class Ingredients(models.Model):
     name = models.CharField(
@@ -77,26 +77,15 @@ class Recipe(models.Model):
         through='recipes.IngredientAmount'
     )
     tags = models.ManyToManyField(
-        'Tags',
+        Tags,
         related_name='recipes')
     cooking_time = models.PositiveSmallIntegerField(
         'Время приготовления'
     )
-    cooking_time = models.PositiveSmallIntegerField(
-        verbose_name='Время приготовления в минутах',
-        help_text='Введите время приготовления от 1 до 9999 минут',
-        validators=(
-            MinValueValidator(limit_value=1,
-                              message='Время приготовления \
-                                не может быть меньше 1 минуты'),
-            MaxValueValidator(limit_value=9999,
-                              message='Время приготовления \
-                                не может быть больше 9999 минут')
-        )
-    )
     pub_date = models.DateTimeField(
-        verbose_name='Дата публикации',
-        auto_now=True
+        'Дата публикации',
+        auto_now_add=True,
+        db_index=True
     )
 
     class Meta:
