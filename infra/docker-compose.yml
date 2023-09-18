@@ -44,9 +44,9 @@ services:
     command: >
       bash -c "python manage.py makemigrations
       && python manage.py migrate
-      && source create_superuser_prod.sh 
-      && source create_user1.sh
-      && source create_user_2.sh
+      && source createsuperuser.sh 
+      && source createsuperuser1.sh
+      && source createsuperuser2.sh
       && python manage.py import_ingredients 
       && python manage.py import_tags
       && python manage.py collectstatic --no-input 

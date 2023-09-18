@@ -1,0 +1,1 @@
+echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.filter(email='bukki@mail.ru').exists() or User.objects.create_user('bukki@mail.ru','bukki','Дмитрий','Колосков','QAsdft167!')" | python manage.py shell
