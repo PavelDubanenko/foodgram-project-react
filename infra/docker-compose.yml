@@ -19,19 +19,19 @@ services:
       - media_value:/app/backend_media
 
     depends_on:
-      - django
+      - backend
 
   db:
-    image: postgres:13.0-alpine
-    ports:
-      - "5432:5432"
+    # Из какого образа запустить контейнер:
+    image: postgres:13.10
+    # Файл (или список файлов) с переменными окружения
     env_file:
       - ../backend/foodgram/.env
-
+    # Какой volume подключить для этого контейнера
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - pg_data:/var/lib/postgresql/data
 
-  django:
+  backend:
 
     build:
       context: ../backend
@@ -44,13 +44,11 @@ services:
     command: >
       bash -c "python manage.py makemigrations
       && python manage.py migrate
-      && source createsuperuser.sh 
-      && source createsuperuser1.sh
-      && source createsuperuser2.sh
       && python manage.py import_ingredients 
       && python manage.py import_tags
       && python manage.py collectstatic --no-input 
       && gunicorn --bind 0:8000 foodgram.wsgi"
+
 
     depends_on:
       - db
@@ -60,5 +58,5 @@ services:
 volumes:
     static_value:
     media_value:
-    postgres_data:
+    pg_data:
     result_build:
