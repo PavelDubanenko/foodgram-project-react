@@ -104,6 +104,7 @@ TOKEN=252132607137
 ALLOWED_HOSTS=*
 ```
 ### Список использованных библиотек:
+```
 asgiref==3.6.0
 certifi==2022.12.7
 cffi==1.15.1
@@ -147,3 +148,4 @@ tzdata==2022.7
 uritemplate==4.1.1
 urllib3==1.26.14
 webcolors==1.12
+```
