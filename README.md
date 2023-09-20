@@ -103,86 +103,47 @@ DB_PORT=5432
 TOKEN=252132607137
 ALLOWED_HOSTS=*
 ```
-
-### Примеры запросов:
-
-**`POST` | Создание рецепта: `http://127.0.0.1:8000/api/recipes/`**
-
-Request:
-```
-{
-  "ingredients": [
-    {
-      "id": 1123,
-      "amount": 10
-    }
-  ],
-  "tags": [
-    1,
-    2
-  ],
-  "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==",
-  "name": "string",
-  "text": "string",
-  "cooking_time": 1
-}
-```
-Response:
-```
-{
-  "id": 0,
-  "tags": [
-    {
-      "id": 0,
-      "name": "Завтрак",
-      "color": "#E26C2D",
-      "slug": "breakfast"
-    }
-  ],
-  "author": {
-    "email": "user@example.com",
-    "id": 0,
-    "username": "string",
-    "first_name": "Вася",
-    "last_name": "Пупкин",
-    "is_subscribed": false
-  },
-  "ingredients": [
-    {
-      "id": 0,
-      "name": "Картофель отварной",
-      "measurement_unit": "г",
-      "amount": 1
-    }
-  ],
-  "is_favorited": true,
-  "is_in_shopping_cart": true,
-  "name": "string",
-  "image": "http://foodgram.example.org/media/recipes/images/image.jpeg",
-  "text": "string",
-  "cooking_time": 1
-}
-```
-
-**`POST` | Подписаться на пользователя: `http://127.0.0.1:8000/api/users/{id}/subscribe/`**
-
-Response:
-```
-{
-  "email": "user@example.com",
-  "id": 0,
-  "username": "string",
-  "first_name": "Вася",
-  "last_name": "Пупкин",
-  "is_subscribed": true,
-  "recipes": [
-    {
-      "id": 0,
-      "name": "string",
-      "image": "http://foodgram.example.org/media/recipes/images/image.jpeg",
-      "cooking_time": 1
-    }
-  ],
-  "recipes_count": 0
-}
-```
+### Список использованных библиотек:
+asgiref==3.6.0
+certifi==2022.12.7
+cffi==1.15.1
+charset-normalizer==3.0.1
+coreapi==2.3.3
+coreschema==0.0.4
+cryptography==39.0.0
+defusedxml==0.7.1
+Django==4.1.6
+django-colorfield==0.8.0
+django-filter==22.1
+django-templated-mail==1.1.1
+djangorestframework==3.14.0
+djangorestframework-simplejwt==4.8.0
+djoser==2.1.0
+flake8==6.0.0
+gunicorn==20.1.0
+idna==3.4
+install==1.3.5
+itypes==1.2.0
+Jinja2==3.1.2
+MarkupSafe==2.1.2
+mccabe==0.7.0
+oauthlib==3.2.2
+Pillow==9.4.0
+psycopg2-binary==2.9.5
+pycodestyle==2.10.0
+pycparser==2.21
+pyflakes==3.0.1
+PyJWT==2.6.0
+python-dotenv==0.21.1
+python3-openid==3.2.0
+pytz==2022.7.1
+requests==2.28.2
+requests-oauthlib==1.3.1
+six==1.16.0
+social-auth-app-django==4.0.0
+social-auth-core==4.3.0
+sqlparse==0.4.3
+tzdata==2022.7
+uritemplate==4.1.1
+urllib3==1.26.14
+webcolors==1.12
